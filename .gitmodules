@@ -1,0 +1,3 @@
+[submodule "IDCardHolder/smooth-prim"]
+	path = IDCardHolder/smooth-prim
+	url = git@github.com:rcolyer/smooth-prim.git
