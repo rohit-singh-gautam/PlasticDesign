@@ -7,3 +7,6 @@
 [submodule "Bottle/smooth-prim"]
 	path = Bottle/smooth-prim
 	url = git@github.com:rcolyer/smooth-prim.git
+[submodule "Bottle/BOSL"]
+	path = Bottle/BOSL
+	url = git@github.com:revarbat/BOSL.git

@@ -1,5 +1,5 @@
-use <threads-scad/threads.scad>
-use <smooth-prim/smooth_prim.scad>
+include <BOSL/constants.scad>
+use <BOSL/threading.scad>
 
 $fa = 1;
 $fs = 0.4;
@@ -13,11 +13,12 @@ cap_internal_diameter_without_thread=cap_internal_diameter - cap_thread_size * 2
 bottle_wall_thickness=2;
 bottle_head_thickness=bottle_wall_thickness;
 bottle_head_thread_pitch=cap_thread_pitch;
-bottle_head_thread_tooth_angle=45;
+bottle_head_thread_tooth_angle=30;
 bottle_with_thread_diameter=cap_internal_diameter;
 bottle_head_thread_size=cap_thread_size;
 bottle_head_height=20;
 bottle_head_thread_height=12;
+bottle_head_without_thread=bottle_head_height-bottle_head_thread_height;
 bottle_head_without_thread_diameter=bottle_with_thread_diameter - 2 * bottle_head_thread_size;
 bottle_head_internal=bottle_head_without_thread_diameter - 2*bottle_head_thickness;
 bottle_size=220;
@@ -42,12 +43,12 @@ difference() {
                 circle(d=bottle_head_without_thread_diameter, $fn=bottle_sides);
             }
         }
-        translate([0, 0, bottle_size_without_head/2]) {
+        translate([0, 0, bottle_size/2]) {
             union() {
-                translate([0, 0, -bottle_head_thread_height])
-                cylinder(h=bottle_head_height+1, d=bottle_head_without_thread_diameter);
-                translate([0, 0, bottle_head_height-bottle_head_thread_height])
-                    ScrewThread(bottle_with_thread_diameter, bottle_head_thread_height, pitch=bottle_head_thread_pitch, tooth_height=bottle_head_thread_size, tooth_angle=bottle_head_thread_tooth_angle);
+                translate([0, 0, 0.001 + (bottle_head_height - bottle_head_without_thread)/2-bottle_head_thread_height])
+                    cylinder(h=bottle_head_without_thread + 0.002, d=bottle_head_without_thread_diameter, center=true);
+                translate([0, 0, (bottle_head_height-bottle_head_thread_height)/2])   
+                    trapezoidal_threaded_rod(d=bottle_with_thread_diameter, l=bottle_head_thread_height, pitch=bottle_head_thread_pitch, thread_depth=bottle_head_thread_size, thread_angle=bottle_head_thread_tooth_angle, bevel=true);
             }
         }
     }
