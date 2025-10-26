@@ -1,3 +1,6 @@
 [submodule "IDCardHolder/smooth-prim"]
 	path = IDCardHolder/smooth-prim
 	url = git@github.com:rcolyer/smooth-prim.git
+[submodule "Bottle/threads-scad"]
+	path = Bottle/threads-scad
+	url = git@github.com:rcolyer/threads-scad.git
