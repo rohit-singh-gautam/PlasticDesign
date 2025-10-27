@@ -1,12 +1,6 @@
-[submodule "IDCardHolder/smooth-prim"]
-	path = IDCardHolder/smooth-prim
-	url = git@github.com:rcolyer/smooth-prim.git
-[submodule "Bottle/threads-scad"]
-	path = Bottle/threads-scad
-	url = git@github.com:rcolyer/threads-scad.git
-[submodule "Bottle/smooth-prim"]
-	path = Bottle/smooth-prim
-	url = git@github.com:rcolyer/smooth-prim.git
 [submodule "Bottle/BOSL"]
 	path = Bottle/BOSL
 	url = git@github.com:revarbat/BOSL.git
+[submodule "IDCardHolder/BOSL2"]
+	path = IDCardHolder/BOSL2
+	url = git@github.com:BelfrySCAD/BOSL2.git
